@@ -51,15 +51,13 @@
     <!-- Expanded Content Column - The detail row is made up of this one column -->
     <ng-container matColumnDef="expandedDetail">
       <mat-cell *matCellDef="let detail">
-        <h1>{{detail | json}}}</h1>
+        <h1>{{ detail | json }}}</h1>
       </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row
       *matRowDef="let row; columns: displayedColumns"
-      matRipple
-      class="element-row"
       [class.expanded]="expandRow"
       (click)="toggleDetailsRow(row)"
     ></mat-row>
