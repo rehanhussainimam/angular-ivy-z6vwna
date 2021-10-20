@@ -6,6 +6,8 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable, of } from 'rxjs';
 
 export interface tablevalue {
   value: string;
@@ -66,3 +68,16 @@ const userdata: user[] = [
     edu: { value: 'History' },
   },
 ];
+
+export class ExampleDataSource extends DataSource<any> {
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<Element[]> {
+    const rows = [];
+    userdata.forEach((element) =>
+      rows.push(element, { detailRow: true, element })
+    );
+    return of(rows);
+  }
+
+  disconnect() {}
+}
