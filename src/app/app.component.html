@@ -25,6 +25,7 @@
       <span class="mat-cell">{{ item.edu.value }}</span>
     </mat-expansion-panel-header>
     <div>
+      <pre>{{ item | json }}</pre>
       <app-sub-table
         style="width:100%; padding:10px;"
         [columnsToDisplay]="displayedColumns"
